@@ -37,3 +37,7 @@ class NewUnitTest(unittest.TestCase):
         # You visit that URL - your to-do list is still there.
 
         # Satisfied, you go back to sleep
+
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
