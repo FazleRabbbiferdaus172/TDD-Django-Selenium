@@ -2,12 +2,14 @@ from selenium import webdriver
 import unittest
 
 
-class NewUnitTest(unittest.TestCase):
-    def setup(self):
+class NewVisitorTest(unittest.TestCase):
+    def setUp(self):
         self.browser = webdriver.Firefox()
 
     def tearDown(self):
+        # print('success')
         self.browser.quit()
+        # pass
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # You have heard about a new online to-do app. You go to
