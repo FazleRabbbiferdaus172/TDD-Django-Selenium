@@ -38,7 +38,7 @@ class NewVisitorTest(unittest.TestCase):
         # print(rows)
 
         self.assertTrue(any(row.text == '1: Buy peacock feather'
-                            for row in rows))
+                            for row in rows), "New to-do item did not appear in the table")
         # There is still a text box inviting yo to add another item. You
         # enter "Pet the snake"
         self.fail('Finish the test!')
