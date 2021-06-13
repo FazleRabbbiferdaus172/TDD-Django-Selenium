@@ -37,8 +37,7 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements_by_tag_name('tr')
         # print(rows)
 
-        self.assertTrue(any(row.text == '1: Buy peacock feather'
-                            for row in rows), "New to-do item did not appear in the table")
+        self.assertIn("1: Buy peacock feather", [row.text for row in rows])
         # There is still a text box inviting yo to add another item. You
         # enter "Pet the snake"
         self.fail('Finish the test!')
