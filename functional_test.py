@@ -13,6 +13,11 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
         # pass
 
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
     def test_can_start_a_list_and_retrieve_it_later(self):
         # You have heard about a new online to-do app. You go to
         # check out it's homepage
@@ -33,11 +38,7 @@ class NewVisitorTest(unittest.TestCase):
         # "1: Buy peacock feather" as an item in a to-do list
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        # print(rows)
-
-        self.assertIn("1: Buy peacock feather", [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Buy peacock feather')
         # There is still a text box inviting yo to add another item. You
         # enter "Use peacock feather to make a fly"
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -46,11 +47,8 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
 
         # The page updates again, and now shows both items on your list.
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Buy peacock feather', [row.text for row in rows])
-        self.assertIn('2: Use peacock feather to make a fly',
-                      [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Buy peacock feather')
+        self.check_for_row_in_list_table(''2: Use peacock feather to make a fly'')
 
         self.fail('Finish the test!')
         # You wonder weather the site will remember you list. Then you see
