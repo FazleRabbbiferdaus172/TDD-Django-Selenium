@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.urls import resolve
-from lists.views import home_page
+from .views import home_page
 from django.http import HttpRequest
 from django.template.loader import render_to_string
-from models import Item
+from .models import Item
 # Create your tests here.
 
 
@@ -35,5 +35,5 @@ class ItemModelTest(TestCase):
 
         first_saved_item = saved_items[0]
         second_saved_item = saved_items[1]
-        self.assertEqual('The first (ever) list item', first_saved_item)
-        self.assertEqual('Item the second', second_saved_item)
+        self.assertEqual('The first (ever) list item', first_saved_item.text)
+        self.assertEqual('Item the second', second_saved_item.text)
