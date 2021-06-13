@@ -48,7 +48,8 @@ class NewVisitorTest(unittest.TestCase):
 
         # The page updates again, and now shows both items on your list.
         self.check_for_row_in_list_table('1: Buy peacock feather')
-        self.check_for_row_in_list_table(''2: Use peacock feather to make a fly'')
+        self.check_for_row_in_list_table(
+            '2: Use peacock feather to make a fly')
 
         self.fail('Finish the test!')
         # You wonder weather the site will remember you list. Then you see
