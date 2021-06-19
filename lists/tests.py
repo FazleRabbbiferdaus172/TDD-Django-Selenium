@@ -36,6 +36,9 @@ class HomePageTest(TestCase):
 
 
 class ItemModelTest(TestCase):
+    def test_uses_list_template(self):
+        response = self.client.get('/lists/the-only-list-in-the-world/')
+        self.assertTemplateUsed(response, 'list.html')
 
     def test_saving_and_retriving_item(self):
         first_item = Item()
