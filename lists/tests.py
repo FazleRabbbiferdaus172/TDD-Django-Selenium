@@ -51,6 +51,7 @@ class ListAndItemModelsTest(TestCase):
 class ListViewTest(TestCase):
 
     def test_displays_all_items(self):
+        list_ = List.objects.create()
         Item.objects.create(text='itemey 1')
         Item.objects.create(text='itemey 2')
 
