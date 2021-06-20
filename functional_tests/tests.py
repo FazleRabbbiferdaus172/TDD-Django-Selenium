@@ -108,6 +108,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Again, there is no trace of your list
         page_text = self.browser.find_element_by_tag_name('body').text
-        self.assertNotIn('Buy milk', page_text)
+        self.assertNotIn('Buy peacock feathers', page_text)
+        self.assertIn('Buy milk', page_text)
 
         # satisfied, they both go to sleep
