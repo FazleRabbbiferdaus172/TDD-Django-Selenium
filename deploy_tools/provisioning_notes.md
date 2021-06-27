@@ -22,12 +22,12 @@ eg, on Ubuntu:
 ## Folder structure:
 Assume we have a user account at /home/username
 
-'''
+```
 /home/username
-|___ sites
-      |___ SITENAME
-             |____ database
-             |____ source
-             |____static
-             |____virtualenv
- '''
+└── sites
+      └── SITENAME
+             └── database
+             └── source
+             └── static
+             └── virtualenv
+ ```
